@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Poster from "../assets/poster.svg";
-import Logo from "../assets/Logo.png";
-import hamButton from "../assets/ellipse.png";
+import Logo from "../assets/logo.png";
+import hamButton from "../assets/Menu.png";
+import Right from "../assets/Chevron_right.png";
+import Play from "../assets/Plays.png";
 import imbdLogo from "../assets/imbd.png";
+import LogoImg from "../assets/tv.png";
 import rottenTomatoesLogo from "../assets/rotten-tomatoes.png";
 import MovieCard from "../components/MovieCard";
-import { Container } from "@mui/material";
 import Footer from "../components/Footer";
 import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
-import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import SearchIcon from "@mui/icons-material/Search";
 
 function HomePage() {
@@ -74,131 +75,67 @@ function HomePage() {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-      }}
-    >
+    <div className="flex items-center justify-center flex-col">
       <div
+        className="w-[100vw] md:w-screen h-[50vh] lg:h-[80vh] bg-cover bg-no-repeat bg-center"
         style={{
-          width: "100%",
-          height: "29rem",
           backgroundImage: `url(${Poster})`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
         }}
       >
         <header>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              padding: "1rem 5rem 5rem 5rem",
-            }}
-          >
-            <img src={Logo} alt="" style={{ cursor: "pointer" }} />
-            <div
-              style={{
-                position: "relative",
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
+          <div className="flex items-center justify-between w-full lg:py-10 lg:px-40 px-10 py-4">
+            <img src={Logo} alt="" className="cursor-pointer hidden md:flex" />
+            <img
+              src={LogoImg}
+              alt="Only logo"
+              className="cursor-pointer flex md:hidden w-5 h-5"
+            />
+            <div className="relative text-xs md:text-base flex items-center">
               <input
                 type="text"
                 placeholder="What do you want to watch?"
-                style={{
-                  border: "3px solid white",
-                  backgroundColor: "transparent",
-                  width: "45rem",
-                  borderRadius: "1rem",
-                  height: "1.5rem",
-                  padding: "0.5rem 1rem 0.5rem 2rem",
-                  color: "white",
-                  textTransform: "capitalize",
-                }}
+                className="lg:h-10 h-6 md:w-96 w-1/2 rounded-md border md:border-2 md:border-solid px-3 py-2 text-white bg-transparent"
                 onChange={(e) => setSearchQuery(e.target.value)}
                 value={searchQuery}
               />
               <div onClick={handleSearch}>
-                <SearchIcon
-                  style={{
-                    position: "absolute",
-                    right: "1rem",
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    color: "white",
-                    cursor: "pointer",
-                  }}
-                />
+                <SearchIcon className="absolute md:right-4 md:-top-1 translate-y-1/2 text-white cursor-pointer" />
               </div>
             </div>
-            <img src={hamButton} alt="" style={{ cursor: "pointer" }} />
+            <div className="flex justify-center items-center md:gap-x-3">
+              <span className="text-white text-xs lg:text-base font-bold">
+                Sign in
+              </span>
+              <img
+                src={hamButton}
+                alt=""
+                className="cursor-pointer w-6 h-6 lg:w-12 lg:h-12"
+              />
+            </div>
           </div>
           {posterMovieData ? (
-            <Container style={{ textAlign: "left" }}>
-              <h2
-                style={{
-                  color: "white",
-                  textAlign: "left",
-                  width: "20rem",
-                  paddingLeft: "5rem",
-                }}
-              >
+            <section className="text-left md:ml-40 md:mt-28 ml-10 mt-12 flex flex-col gap-y-4">
+              <h2 className="text-white text-lg md:text-6xl font-semibold md:w-2/5 w-1/2">
                 {posterMovieData.title}
               </h2>
-              <div
-                style={{
-                  display: "flex",
-                  width: "13rem",
-                  justifyContent: "space-between",
-                  paddingLeft: "5rem",
-                }}
-              >
+              <div className="flex gap-x-8">
                 <img src={imbdLogo} alt="" />
                 <img src={rottenTomatoesLogo} alt="" />
               </div>
-              <p
-                style={{
-                  color: "white",
-                  textAlign: "left",
-                  width: "20rem",
-                  fontSize: ".8rem",
-                  paddingLeft: "5rem",
-                }}
-              >
+              <p className="text-white text-left text-xs lg:text-lg w-3/5 md:w-2/5">
                 {posterMovieData.overview}
               </p>
-              <button
-                style={{
-                  marginLeft: "5rem",
-                  height: "2.5rem",
-                  backgroundColor: "#BE123C",
-                  border: "none",
-                  borderRadius: ".5rem",
-                  color: "white",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  width: "7rem",
-                  cursor: "pointer",
-                }}
-              >
-                <PlayCircleOutlineIcon sx={{ color: "white" }} />
-                Watch Later
+              <button className=" h-12 bg-[#BE123C] w-1/4 lg:w-1/6 px-4 text-xs lg:text-base lg:px-10 gap-x-2 lg:gap-x-6 rounded-lg capitalize lg:uppercase text-white flex items-center justify-between py-4 cursor-pointer">
+                <img src={Play} alt="Play Icon" />
+                Watch Trailer
               </button>
-            </Container>
+            </section>
           ) : (
-            <p style={{ color: "white" }}>Loading....</p>
+            <p className="text-white">Loading....</p>
           )}
         </header>
-        <main style={{ marginTop: "5rem" }}>
-          <Container>
+        <main className="mt-20">
+          <section>
             {loading ? (
               <Spinner />
             ) : (
@@ -206,56 +143,34 @@ function HomePage() {
                 {Array.isArray(searchResults) &&
                   searchQuery &&
                   searchResults.length > 0 && (
-                    <div style={{ marginBottom: "3rem" }}>
-                      <h1
-                        style={{
-                          textAlign: "left",
-                          fontSize: "1.2rem",
-                          marginBottom: "2rem",
-                        }}
-                      >
-                        Search Results
-                      </h1>
-                      <Container
-                        className="movie-grid"
-                        style={{
-                          display: "grid",
-                          gridTemplateColumns: "repeat(4, 1fr)",
-                          gap: "3rem",
-                        }}
-                      >
+                    <div className="mb-12">
+                      <h1 className="text-left text-xl mb-8">Search Results</h1>
+                      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-10 lg:mx-40 gap-16 my-8 lg:my-20">
                         {searchResults.map((movie) => (
                           <MovieCard key={movie.id} movie={movie} />
                         ))}
-                      </Container>
+                      </section>
                     </div>
                   )}
-                <h1
-                  style={{
-                    textAlign: "left",
-                    fontSize: "1.2rem",
-                    marginBottom: "1rem",
-                    marginTop: "3rem",
-                  }}
-                >
-                  Featured Movies
-                </h1>
+                <div className="flex justify-between items-center mx-10 lg:mx-40 mt-24 lg:mt-48">
+                  <h1 className="text-left text-lg lg:text-3xl lg:mb-4 text-textMain font-bold">
+                    Featured Movie
+                  </h1>
+                  <div className="text-sm lg:text-lg text-activeColor font-semibold hover:border hover:px-4 hover:py-3 hover:border-activeColor hover:rounded-md flex justify-between items-center w-20 lg:w-28 hover:w-40 cursor-pointer">
+                    <span>See more</span>
+                    <img src={Right} alt="right icon" />
+                  </div>
+                </div>
                 {Array.isArray(topMovies) && topMovies.length > 0 && (
-                  <Container
-                    style={{
-                      display: "grid",
-                      gridTemplateColumns: "repeat(4, 1fr)",
-                      gap: "3rem",
-                    }}
-                  >
+                  <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-10 lg:mx-40 gap-16 my-8 lg:my-20">
                     {topMovies.map((movie) => (
                       <MovieCard key={movie.id} movie={movie} />
                     ))}
-                  </Container>
+                  </section>
                 )}
               </>
             )}
-          </Container>
+          </section>
         </main>
 
         <Footer />

@@ -1,11 +1,11 @@
-import React from 'react'
-import '../index.css'
+import React from "react";
+import "../index.css";
 function Spinner() {
   return (
-    <div className="spinner-container" style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+    <div className="spinner-container flex items-center justify-center">
       <div className="spinner"></div>
     </div>
-  )
+  );
 }
 
-export default Spinner
+export default Spinner;

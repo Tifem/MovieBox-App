@@ -1,26 +1,28 @@
-import React from 'react'
-import InstagramIcon from '@mui/icons-material/Instagram';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import YouTubeIcon from '@mui/icons-material/YouTube';
+import React from "react";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import Facebook from "../assets/Facebook.png";
 
 function Footer() {
   return (
-    <footer style={{marginTop: '7rem', height: 'auto', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
-    <div style={{display: 'flex', width: '40%', alignItems: 'center', justifyContent: 'space-around', marginBottom: '1rem'}}>
-        
-        <InstagramIcon/>
-        <TwitterIcon/>
-        <YouTubeIcon/>
-        
-    </div>
-    <div style={{display: 'flex', width: '50%', alignItems: 'center', justifyContent: 'space-around', marginBottom: '1rem'}}>
-      <p>Condition Use</p>
-      <p>Privacy & Policy</p>
-      <p>Press Room</p>
-    </div>
-    <p> © 2021 <span style={{color: 'gray'}}>MovieBox Discovery App</span> by <span style={{color: 'gray'}}>Boluwatife Janet</span></p>
+    <footer className="my-28 h-auto w-full flex items-center justify-center flex-col">
+      <div className="flex w-1/2 items-center justify-center gap-x-6 mb-4">
+        <img src={Facebook} alt="Facebook Logo" />
+        <InstagramIcon />
+        <TwitterIcon />
+        <YouTubeIcon />
+      </div>
+      <div className="flex w-1/2 my-6 text-textMain font-bold text-base items-center justify-around mb-4">
+        <p>Condition of Use</p>
+        <p>Privacy & Policy</p>
+        <p>Press Room</p>
+      </div>
+      <p className="text-textMinor font-bold text-base mb-10">
+        © 2021 <span>MovieBox Discovery App</span> by <span>Boluwatife Janet</span>
+      </p>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
