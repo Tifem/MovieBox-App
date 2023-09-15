@@ -83,7 +83,7 @@ function MovieCard({ movie }) {
         <img
           src={Favorite}
           alt="Favorite Icon"
-          className="favorite-icon text-white bg-transparent absolute left-64 top-6 cursor-pointer"
+          className="favorite-icon text-white bg-transparent absolute left-60  cursor-pointer"
         />
         <img
           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}

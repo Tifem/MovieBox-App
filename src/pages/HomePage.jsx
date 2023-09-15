@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Poster from "../assets/poster.svg";
-import Logo from "../assets/logo.png";
+import Logo from "../assets/Logo.png";
 import hamButton from "../assets/Menu.png";
 import Right from "../assets/Chevron_right.png";
 import Play from "../assets/Plays.png";
@@ -77,7 +77,7 @@ function HomePage() {
   return (
     <div className="flex items-center justify-center flex-col">
       <div
-        className="w-[100vw] md:w-screen h-[50vh] lg:h-[80vh] bg-cover bg-no-repeat bg-center"
+        className="w-[100vw] md:w-screen h-[50vh] lg:h-[88vh] bg-cover bg-no-repeat bg-center"
         style={{
           backgroundImage: `url(${Poster})`,
         }}
@@ -125,7 +125,7 @@ function HomePage() {
               <p className="text-white text-left text-xs lg:text-lg w-3/5 md:w-2/5">
                 {posterMovieData.overview}
               </p>
-              <button className=" h-12 bg-[#BE123C] w-1/4 lg:w-1/6 px-4 text-xs lg:text-base lg:px-10 gap-x-2 lg:gap-x-6 rounded-lg capitalize lg:uppercase text-white flex items-center justify-between py-4 cursor-pointer">
+              <button className=" h-12 bg-[#BE123C] w-1/4 lg:w-1/6 px-4 text-xs lg:text-base lg:px-10 gap-x-2 lg:gap-x-6 rounded-lg capitalize lg:uppercase text-white flex items-center justify-between py-2 cursor-pointer">
                 <img src={Play} alt="Play Icon" />
                 Watch Trailer
               </button>

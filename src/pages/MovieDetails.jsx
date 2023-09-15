@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Spinner from "../components/Spinner";
-import { Container } from "@mui/material";
 import NavBar from "../components/NavBar";
 
 function MovieDetails() {
